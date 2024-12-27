@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+	// array untuk menyimpan tipe data agar lebih rapih
+	// jumlah tipe data nya ada 5 di dalam array
+    string menu[] = {"Nasi Goreng\t\t\t", "Mie Goreng\t\t\t", "Ayam Bakar\t\t\t", 
+						"Sate Ayam\t\t\t", "Es Teh\t\t\t"};
+    int harga[] = {18000, 15000, 20000, 22000, 5000};
+    
+    int total = 0;
+    int pil;
+    
+    // looping while agar pengguna bisa input ulang
+    while(true){
+    	cout << " ============================================\n";
+    	cout << "   Menu Makanan & Minuman Toko ASIK KREMES\n";
+    	cout << " ============================================\n";
+    	
+    	// looping for untuk menampilkan menu dan harganya
+    	for(int i = 0; i < 5; i++){
+    		cout << " "<< i + 1 << ". " << menu[i] << " - Rp " << harga[i] << "\n";
+		}
+		cout << " ============================================\n";
+		cout << " Pilih pesanan (ketik 0 untuk keluar) : ";
+		cin >> pil;
+		
+		// jika pilihan = 0 maka program berhenti berjalan
+		if(pil == 0){
+			cout << " Total harga yang harus dibayar : Rp " << total << ".\n" << endl;
+			cout << " Terima kasih sudah mengunjungi toko kami ^^";
+			break;
+		}
+		
+		// jika memilih menu diantara menu 1 hingga 5 maka program akan menghitung harganya
+		// atau program akan looping kembali ke awal jika memesan yang tidak ada di menu
+		if (pil >=1 && pil <= 5){
+			total += harga[pil - 1];
+			cout << " Total harga saat ini : Rp " << total << ".\n" << endl;
+		} else {
+			cout << " Pilihan tidak valid! silahkan dicoba lagi.\n";
+		}
+	}
+	return 0;
+}
